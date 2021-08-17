@@ -20,6 +20,12 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface YoobicGrid {
+        /**
+          * The data to render
+         */
+        "data": Array<any>;
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -28,8 +34,15 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLYoobicGridElement extends Components.YoobicGrid, HTMLStencilElement {
+    }
+    var HTMLYoobicGridElement: {
+        prototype: HTMLYoobicGridElement;
+        new (): HTMLYoobicGridElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "yoobic-grid": HTMLYoobicGridElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,8 +60,15 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface YoobicGrid {
+        /**
+          * The data to render
+         */
+        "data"?: Array<any>;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "yoobic-grid": YoobicGrid;
     }
 }
 export { LocalJSX as JSX };
@@ -56,6 +76,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "yoobic-grid": LocalJSX.YoobicGrid & JSXBase.HTMLAttributes<HTMLYoobicGridElement>;
         }
     }
 }

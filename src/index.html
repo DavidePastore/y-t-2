@@ -10,5 +10,16 @@
   </head>
   <body>
     <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+    <yoobic-grid></yoobic-grid>
+
+    <script>
+      const grid = document.querySelector('yoobic-grid');
+
+      fetch('https://swapi.dev/api/films/?format=json')
+        .then(response => response.json())
+        .then(data => {
+          grid.data = data.results;
+        });
+    </script>
   </body>
 </html>
