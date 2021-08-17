@@ -6,20 +6,6 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
-    }
     interface YoobicGrid {
         /**
           * The data to render
@@ -28,12 +14,6 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
     interface HTMLYoobicGridElement extends Components.YoobicGrid, HTMLStencilElement {
     }
     var HTMLYoobicGridElement: {
@@ -41,25 +21,10 @@ declare global {
         new (): HTMLYoobicGridElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
         "yoobic-grid": HTMLYoobicGridElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
-    }
     interface YoobicGrid {
         /**
           * The data to render
@@ -67,7 +32,6 @@ declare namespace LocalJSX {
         "data"?: Array<any>;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
         "yoobic-grid": YoobicGrid;
     }
 }
@@ -75,7 +39,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "yoobic-grid": LocalJSX.YoobicGrid & JSXBase.HTMLAttributes<HTMLYoobicGridElement>;
         }
     }
